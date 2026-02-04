@@ -4,4 +4,4 @@ metadata:
   name: nginx-config
 data:
   topic: "devops"
-  cloud: "azure"
+  cloud: "aws"
