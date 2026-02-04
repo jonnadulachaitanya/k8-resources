@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  - name: environments
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+      - name: topic
+        value: "Devops"
+      - name: cloud
+        value: "aws"
+      - name: implementor
+        value: "chaitanya"

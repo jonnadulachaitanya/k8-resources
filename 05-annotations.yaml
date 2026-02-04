@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: annotations
+  annotations:
+    imageregistry: "https://docker.hub.com"
+    buildURL: "https://docs.aws.amazon.com/eks/latest/eksctl/installation.html"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
