@@ -20,4 +20,4 @@ spec: #modify replicas according to your case
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:mainline-alpine-perl
