@@ -18,6 +18,6 @@ spec: #modify replicas according to your case
         tier: frontend
         app: nginx
   spec:
-    container:
+    containers:
     - name: nginx
       image: nginx
