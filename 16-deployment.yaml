@@ -1,3 +1,4 @@
+#Deployments can handle the image version changes where that cannot be done in replica sets
 apiVersion: apps/v1
 kind: Deployment
 metadata:
