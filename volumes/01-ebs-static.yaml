@@ -9,6 +9,6 @@ spec:
     storage: 20Gi
   csi:
     driver: ebs.csi.aws.com
-    fstype: ext4
+    FSType: ext4
     volumeHandle: vol-0f2e7000cbb8ef5ab
 
