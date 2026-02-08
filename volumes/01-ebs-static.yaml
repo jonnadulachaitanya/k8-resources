@@ -17,9 +17,41 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs-static
 spec:
-  storageClassName: "" #Empty string,it in not used in static
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ebs-static
+  labels:
+    purpose: ebs-static
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    VolumeMounts:  # docker run -v hostpath:contaierpath
+    - name: ens-static
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: ebs-static
+    PersistentVolumeClaim:
+      claimName: ens-static
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: ebs-static
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80
+    targetPort: 80
