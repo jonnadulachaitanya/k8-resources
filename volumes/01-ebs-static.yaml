@@ -40,7 +40,7 @@ spec:
   volumes:
   - name: ebs-static
     persistentVolumeClaim:
-      claimName: ens-static
+      claimName: ebs-static
 ---
 apiVersion: v1
 kind: Service
