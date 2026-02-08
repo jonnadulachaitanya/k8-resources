@@ -18,6 +18,7 @@ metadata:
   name: ebs-static
 spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: ebs-static
   accessModes:
   - ReadWriteOnce
   resources:
@@ -31,24 +32,27 @@ metadata:
   labels:
     purpose: ebs-static
 spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a
   containers:
   - name: nginx
     image: nginx
-    volumeMounts:  # docker run -v hostpath:contaierpath
+    volumeMounts: # docker run -v hostpath:contaierpath
     - name: ebs-static
-      mountPath: /usr/share/nginx/html
+      mountPath: /usr/shared/nginx/html
   volumes:
   - name: ebs-static
-    persistentVolumeClaim:
+    PersistentVolumeClaim:
       claimName: ebs-static
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: ebs-static
 spec:
   type: LoadBalancer
   selector:
+    lablabels:
     purpose: ebs-static
   ports:
   - name: nginx-svc-port
