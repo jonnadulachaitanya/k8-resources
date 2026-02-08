@@ -17,7 +17,7 @@ spec: #modify replicas according to your case
       labels:
         tier: frontend
         app: nginx
-  spec:
-    containers:
-    - name: nginx
-      image: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
