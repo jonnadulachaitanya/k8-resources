@@ -42,7 +42,7 @@ spec:
       mountPath: /usr/shared/nginx/html
   volumes:
   - name: ebs-static
-    PersistentVolumeClaim:
+    persistentVolumeClaim:
       claimName: ebs-static
 ---
 apiVersion: v1
