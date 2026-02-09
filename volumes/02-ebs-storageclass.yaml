@@ -1,0 +1,7 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: expense-ebs
+reclaimPolicy: retain
+provisioner: ebs.csi.aws.com # CSI driver will help kubernetes to create volume in AWS, it will talk to aws.
+volumeBindingMode: waitForFirstConsumer # Storage will be created when pod is getting create.
