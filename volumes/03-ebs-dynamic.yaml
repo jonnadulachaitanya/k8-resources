@@ -20,11 +20,11 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    volumeMounts:
+    VolumeMounts:
       name: ebs-dynamic
       mountPath: /usr/share/nginx/html
   volumes:
-    persistentVolumeClaim:
+    PersistentVolumeClaim:
       claimName: ebs-dynamic
 ---
 apiVersion: v1
