@@ -21,7 +21,7 @@ spec:
     topology.kubernetes.io/zone: us-east-1f
   containers:
   - name: nginx
-    images: nginx
+    image: nginx
     volumeMounts:
     - name: efs-dynamic
       mountPath: /usr/share/nginx/html
