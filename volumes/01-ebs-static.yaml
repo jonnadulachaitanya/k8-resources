@@ -1,62 +1,13 @@
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistantVolume
 metadata:
   name: ebs-static
 spec:
-  accessModes:
+  accessmodes:
   - ReadWriteOnce
   capacity:
     storage: 20Gi
   csi:
     driver: ebs.csi.aws.com
-    fsType: ext4
-    volumeHandle: vol-0f2e7000cbb8ef5ab
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ebs-static
-spec:
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-  volumeName: ebs-static
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: ebs-static
-  labels:
-    purpose: ebs-static
-spec:
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1a
-  containers:
-  - name: nginx
-    image: nginx
-    volumeMounts: # docker run -v hostpath:contaierpath
-    - name: ebs-static
-      mountPath: /usr/share/nginx/html
-  volumes:
-  - name: ebs-static
-    persistentVolumeClaim:
-      claimName: ebs-static
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ebs-static
-spec:
-  type: LoadBalancer
-  selector:
-    lablabels:
-    purpose: ebs-static
-  ports:
-  - name: nginx-svc-port
-    protocol: TCP
-    port: 80
-    targetPort: 80
-    nodePort: 30007
+    fstype: ext4
+    volumeHandle: vol-026591c6d4849b36a
