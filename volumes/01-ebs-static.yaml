@@ -4,7 +4,7 @@ metadata:
   name: ebs-static
 spec:
   accessmodes:
-  - ReadWriteOnce
+  - readWriteOnce
   capacity:
     storage: 20Gi
   csi:
