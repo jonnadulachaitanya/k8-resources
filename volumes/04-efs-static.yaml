@@ -7,7 +7,7 @@ spec:
   - ReadWriteOnce
   capacity:
     storage: 5Gi
-  volumeMode: fileSystem
+  volumeMode: FileSystem
   storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   csi:
