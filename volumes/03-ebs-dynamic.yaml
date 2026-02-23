@@ -24,6 +24,7 @@ spec:
       name: ebs-dynamic
       mountPath: /usr/share/nginx/html
   volumes:
+  - name: ebs-dynamic
     PersistentVolumeClaim:
       claimName: ebs-dynamic
 ---
